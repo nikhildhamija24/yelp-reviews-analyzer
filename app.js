@@ -14,32 +14,40 @@
  * limitations under the License.
  */
 
-'use strict';
+"use strict";
 
-var express    = require('express'),
-  app          = express(),
-  watson       = require('watson-developer-cloud'),
-  extend       = require('util')._extend,
-  i18n         = require('i18next');
+var express    = require("express"),
+  	app          = express(),
+  	watson       = require("watson-developer-cloud"),
+  	extend       = require("util")._extend,
+  	i18n         = require("i18next"),
+	bodyparser   = require("body-parser"),
+    yelproute	 = require("./routes/yelproutes");
+
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use("/yelp", yelproute);
 
 //i18n settings
-require('./config/i18n')(app);
+require("./config/i18n")(app);
 
 // Bootstrap application settings
-require('./config/express')(app);
+require("./config/express")(app);
 
 // Create the service wrapper
 var personalityInsights = watson.personality_insights({
-  version: 'v2',
-  username: '<username>',
-  password: '<password>'
+  version: "v2",
+  username: "<username>",
+  password: "<password>"
 });
 
-app.get('/', function(req, res) {
-  res.render('index', { ct: req._csrfToken });
+app.get("/", function(req, res) {
+  res.render("index", { ct: req._csrfToken });
 });
 
-app.post('/api/profile', function(req, res, next) {
+
+
+app.post("/api/profile", function(req, res, next) {
   var parameters = extend(req.body, { acceptLanguage : i18n.lng() });
 
   personalityInsights.profile(parameters, function(err, profile) {
@@ -51,8 +59,8 @@ app.post('/api/profile', function(req, res, next) {
 });
 
 // error-handler settings
-require('./config/error-handler')(app);
+require("./config/error-handler")(app);
 
 var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port);
-console.log('listening at:', port);
+console.log("listening at:", port);
