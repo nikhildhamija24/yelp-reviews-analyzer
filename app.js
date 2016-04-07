@@ -42,7 +42,7 @@ var personalityInsights = watson.personality_insights({
 });
 
 app.get("/", function(req, res) {
-  res.render("index", { ct: req._csrfToken });
+  res.render("home", { ct: req._csrfToken });
 });
 
 
