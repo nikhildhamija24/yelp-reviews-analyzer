@@ -45,6 +45,10 @@ app.get("/", function(req, res) {
   res.render("home", { ct: req._csrfToken });
 });
 
+app.get("/analyser", function(req, res) {
+    res.render("index", { ct: req._csrfToken });
+});
+
 
 
 app.post("/api/profile", function(req, res, next) {
