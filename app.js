@@ -46,7 +46,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/analyser", function(req, res) {
-    res.render("index", { ct: req._csrfToken });
+    res.render("analyser", { ct: req._csrfToken });
 });
 
 
