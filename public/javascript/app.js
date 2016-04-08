@@ -15,7 +15,7 @@ app.controller('homeController',function($scope,$http){
                 "searchTerm" : searchText,
                 "location" : location
             },
-            url : "http://localhost:3000/yelp/restaurants"
+            url : "/yelp/restaurants"
         }).success(function(data){
             $scope.data = data;
         });
@@ -29,7 +29,7 @@ app.controller('homeController',function($scope,$http){
             data : {
                 "restaurantId" : id
             },
-            url : "http://localhost:3000/yelp/restaurantinfo"
+            url : "/yelp/restaurantinfo"
         }).success(function(result) {
             alert(result);
             $scope.result = result;
