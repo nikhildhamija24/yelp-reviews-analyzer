@@ -1,8 +1,3 @@
-/**
- * Created by Chinmay on 08-04-2016.
- */
-
-
 var app =  angular.module('main',[]);
 app.controller('homeController',function($scope,$http){
 
@@ -17,6 +12,7 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurants"
         }).success(function(data){
+            alert(data);
             $scope.data = data;
         });
     }
