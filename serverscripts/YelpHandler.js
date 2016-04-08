@@ -105,6 +105,7 @@ _getOAuthParams = function () {
  * @private
  */
 _addReviews = function (body) {
+	body = JSON.parse(body);
 	body.reviews = [];
 	for (var i = 0; i < 10; i++) {
 		var index = Math.floor(Math.random() * 51);
