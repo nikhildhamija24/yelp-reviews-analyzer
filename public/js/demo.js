@@ -37,7 +37,7 @@ $(document).ready(function() {
     language = 'en'; // language selection
 
   // Jquery variables
-  var $content = $('.content'),
+  var $content = $('.content_t'),
     $loading   = $('.loading'),
     $error     = $('.error'),
     $errorMsg  = $('.errorMsg'),
@@ -374,7 +374,7 @@ function showVizualization(theProfile) {
     language = isEnglish ? 'en' : 'es';
 
     $.get('/text/' + language + '.txt').done(function(text) {
-      $content.val(text);
+     // $content.val(text);
       updateWordsCount();
     });
   }
