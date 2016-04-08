@@ -7,6 +7,7 @@ var request = require("request");
 var queryString = require("querystring");
 var _ = require("lodash");
 var q = require("q");
+var reviews = require("./sample-data");
 
 const CONSUMER_KEY = "njQqjtgnBWWz2_cHfMQOwQ";
 const OAUTH_TOKEN = "3oLFAlK7VPvyo-b4L-KfcjqLW9EtSzkA";
@@ -74,6 +75,7 @@ exports.getRestaurantInfo = function (restaurantName) {
 		if (error) {
 			deferred.reject(error);
 		} else {
+			body = _addReviews(body);
 			deferred.resolve(body);
 		}
 	});
@@ -94,4 +96,22 @@ _getOAuthParams = function () {
 		oauth_signature_method: "HMAC-SHA1",
 		oauth_version: "1.0"
 	};
+}
+
+/**
+ * adds random reviews to searched restaurants.
+ * @param body
+ * @returns {body}
+ * @private
+ */
+_addReviews = function (body) {
+	body.reviews = [];
+	for (var i = 0; i < 10; i++) {
+		var index = Math.floor(Math.random() * 51);
+		var review = reviews.data[index];
+		body.reviews.push({
+			"excerpt": review
+		});
+	}
+	return body;
 }
