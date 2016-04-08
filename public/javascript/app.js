@@ -5,19 +5,34 @@
 
 var app =  angular.module('main',[]);
 app.controller('homeController',function($scope,$http){
-    var searchText = $scope.search;
-    $scope.click = function(){
 
+    $scope.searchList = function(){
+        var searchText = $scope.search;
+        var location = $scope.location;
         $http({
-
             method : "POST",
             data :{
-                "searchText" : searchText
+                "searchTerm" : searchText,
+                "location" : location
             },
             url : "http://localhost:3000/yelp/restaurants"
         }).success(function(data){
-            alert(data);
             $scope.data = data;
+        });
+    }
+
+    $scope.getReviews = function(id){
+    alert(id);
+        $http({
+
+            method : "POST",
+            data : {
+                "restaurantId" : id
+            },
+            url : "http://localhost:3000/yelp/restaurantinfo"
+        }).success(function(result) {
+            alert(result);
+            $scope.result = result;
         });
     }
 });
