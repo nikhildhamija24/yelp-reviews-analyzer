@@ -29,7 +29,7 @@ $(document).ready(function() {
     }
   );
 
-  var MIN_WORDS = 100;
+  var MIN_WORDS = 10;
 
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
