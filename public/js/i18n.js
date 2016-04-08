@@ -130,6 +130,7 @@ var i18nProvider = (function(locale) {
    * @param successCallback(response)
    * @param errorCallback(request, status, error)
    */
+
   self.getJson = function (path, jsonName, successCallback, errorCallback) {
     self.getJsonRecursive(path, this.getJsonOptions(jsonName, this.locale), successCallback, errorCallback);
   };
