@@ -5,15 +5,25 @@
     <title>Yelp</title>
     <link rel='stylesheet' href='/css/style.css'/>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
-    <script src = "javascript/app.js"></script>
-</head>
-<body ng-app = "main" ng-controller = "homeController">
-<h2>Welcome To Yelp Analyzer</h2>
-<input type="text" ng-model = "search" placeholder="Enter Restaurant Name">
-<button type="submit" ng-click = "click()">Search</button>
 
-<div ng-repeat = "value in data">
-    <div style="background-color: #00b2ef">{{ value.name }}</div>
+</head>
+<body ng-app = "main" >
+<h2>Welcome To Yelp Analyzer</h2>
+<div ng-controller = "homeController">
+
+        <input type="text" ng-model = "search" placeholder="Enter Restaurant Name" required />
+        <input type="text" ng-model = "location" placeholder="Enter Location" required />
+        <button type="submit" ng-click = "searchList()">Search</button>
+
+    <div ng-repeat = "value in data.businesses">
+        <div><button type="submit" ng-click = "getReviews(value.id)">{{ value.name }}-------{{value.location.city}}</button></div>
+    </div>
+    <div ng-repeat = "value in result.reviews">
+        <div style="background-color: #00b2ef">
+            <div>{{ value.excerpt }}</div>
+        </div>
+    </div>
 </div>
+<script src = "javascript/app.js"></script>
 </body>
 </html>
