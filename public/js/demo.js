@@ -29,7 +29,7 @@ $(document).ready(function() {
     }
   );
 
-  var MIN_WORDS = 100;
+  var MIN_WORDS = 10;
 
   var widgetId = 'vizcontainer', // Must match the ID in index.jade
     widgetWidth = 700, widgetHeight = 700, // Default width and height
@@ -37,7 +37,7 @@ $(document).ready(function() {
     language = 'en'; // language selection
 
   // Jquery variables
-  var $content = $('.content'),
+  var $content = $('.content_t'),
     $loading   = $('.loading'),
     $error     = $('.error'),
     $errorMsg  = $('.errorMsg'),
@@ -374,7 +374,7 @@ function showVizualization(theProfile) {
     language = isEnglish ? 'en' : 'es';
 
     $.get('/text/' + language + '.txt').done(function(text) {
-      $content.val(text);
+     // $content.val(text);
       updateWordsCount();
     });
   }

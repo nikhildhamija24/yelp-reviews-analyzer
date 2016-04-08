@@ -22,7 +22,7 @@ app.controller('homeController',function($scope,$http){
     }
 
     $scope.getReviews = function(id){
-    alert(id);
+    //alert(id);
         $http({
 
             method : "POST",
@@ -31,8 +31,17 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurantinfo"
         }).success(function(result) {
-            alert(result);
+            var temp_review_var = ((result.reviews[0].excerpt).concat(result.reviews[0].excerpt)).concat(((result.reviews[0].excerpt).concat(result.reviews[0].excerpt)));
+            //alert(temp_review_var);
             $scope.result = result;
+
+
+
+
         });
     }
 });
+
+
+
+
