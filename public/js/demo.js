@@ -37,7 +37,7 @@ $(document).ready(function() {
     language = 'en'; // language selection
 
   // Jquery variables
-  var $content = $('.content_t'),
+  var $content = $('.content'),
     $loading   = $('.loading'),
     $error     = $('.error'),
     $errorMsg  = $('.errorMsg'),
