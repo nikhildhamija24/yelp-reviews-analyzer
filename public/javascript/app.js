@@ -12,6 +12,7 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurants"
         }).success(function(data){
+            alert(data);
             document.getElementById("list").style.display="block";
             $scope.data = data;
         });
