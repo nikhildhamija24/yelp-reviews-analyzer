@@ -35,6 +35,7 @@ app.controller('homeController',function($scope,$http){
             $scope.review_show = true;
             document.getElementById("review").style.display="block";
             $scope.result = _getAllResults(result);
+            console.log(result);
      });
     }
     
