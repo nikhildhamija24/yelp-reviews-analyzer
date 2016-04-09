@@ -12,7 +12,7 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurants"
         }).success(function(data){
-            alert(data);
+            //alert(data);
             document.getElementById("div").style.display="block";
             $scope.data = data;
         });
@@ -27,7 +27,7 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurantinfo"
         }).success(function(result) {
-            alert(result);
+            //alert(result);
             document.getElementById("review").style.display="block";
             $scope.result = result;
      });
