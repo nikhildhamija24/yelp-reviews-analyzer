@@ -45,12 +45,16 @@
         </div>
 
         <div class="col-lg-6 col-md-12 col-xs-12">
-            <div style="display: none" class="results">
+            <div style="display: none" class="results" id="review">
                 <h2>**Here's your Ideal review**</h2>
                 <div class="well">
                     <div class="summary-div"></div>
                     <div style="color: gray" class="text-right">
                         <em class="small">*As analyzed from the top yelp reviews</em>
+                    </div>
+                        <div ng-repeat = "value in result.reviews">
+                            <div>{{ value.excerpt }}</div>
+                        </div>
                     </div>
                     <div style="color: gray" class="text-right">
                         <em class="small outputMessageFootnote"></em>
@@ -62,7 +66,7 @@
 
     <div class="results">
         <div class="row">
-            <div style = "display: none" class="col-lg-5 col-md-12 col-xs-12" id ="div">
+            <div style = "display: none" class="col-lg-5 col-md-12 col-xs-12" id ="list">
                 <h3>Choose your restaurants from the list below</h3>
                 <div class="table-bordered">
                     <div ng-repeat = "value in data.businesses">

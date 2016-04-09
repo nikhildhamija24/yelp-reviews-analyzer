@@ -12,13 +12,12 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurants"
         }).success(function(data){
-            document.getElementById("div").style.display="block";
+            document.getElementById("list").style.display="block";
             $scope.data = data;
         });
     }
 
     $scope.getReviews = function(id){
-    //alert(id);
         $http({
 
             method : "POST",
@@ -27,14 +26,9 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurantinfo"
         }).success(function(result) {
-            var temp_review_var = ((result.reviews[0].excerpt).concat(result.reviews[0].excerpt)).concat(((result.reviews[0].excerpt).concat(result.reviews[0].excerpt)));
-            //alert(temp_review_var);
+            alert(result);
             $scope.result = result;
-
-
-
-
-        });
+     });
     }
 });
 
