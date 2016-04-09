@@ -62,9 +62,13 @@
 
     <div class="results">
         <div class="row">
-            <div class="col-lg-5 col-md-12 col-xs-12" id ="div">
+            <div style = "display: none" class="col-lg-5 col-md-12 col-xs-12" id ="div">
                 <h3>Choose your restaurants from the list below</h3>
-                <div class="table-bordered"></div>
+                <div class="table-bordered">
+                    <div ng-repeat = "value in data.businesses">
+                        <div><button type="submit" ng-click = "getReviews(value.id)">{{ value.name }}-------{{value.location.city}}</button></div>
+                    </div>
+                </div>
             </div>
 
         </div>

@@ -1,5 +1,3 @@
-
-
 var app =  angular.module('main',[]);
 app.controller('homeController',function($scope,$http){
 
@@ -14,7 +12,7 @@ app.controller('homeController',function($scope,$http){
             },
             url : "/yelp/restaurants"
         }).success(function(data){
-            alert(data);
+            document.getElementById("div").style.display="block";
             $scope.data = data;
         });
     }
