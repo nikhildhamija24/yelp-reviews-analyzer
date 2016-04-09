@@ -46,7 +46,7 @@
                     <h3>Choose your restaurants from the list below</h3>
                     <div class="hidden-tablet">
                         <div ng-repeat = "value in data.businesses">
-                            <div><button type="submit" class="restaurant-button" style="background-color: #2F6FAD; border-bottom-width: medium; width: 65%" ng-click = "getReviews(value.id)">{{ value.name }}-------{{value.location.city}}
+                            <div><button type="submit" class="restaurant-button" style="background-color: #2F6FAD; border-bottom-width: medium; width: 65%" ng-click = "getReviews(value.id)">{{ value.name }}, {{value.location.city}}, {{value.location.postal_code}}
                                 </button>
                             </div>
                         </div>
