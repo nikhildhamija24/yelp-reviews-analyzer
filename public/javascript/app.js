@@ -34,16 +34,14 @@ app.controller('homeController',function($scope,$http){
             //alert(result);
             $scope.review_show = true;
             document.getElementById("review").style.display="block";
-            $scope.result = _getAllResults(result);
-            console.log(result);
+            $scope.result = $scope._getAllResults(result);
      });
     }
     
     $scope._getAllResults = function (result) {
         var string = "";
         for(var i = 0 ; i < result.reviews.length; i++) {
-            console.log(result.reviews[i].excerpt);
-            string += "\n\n" + result.reviews[i].excerpt;
+            string += result.reviews[i].excerpt + "\n\n";
         }
         return string;
     }
