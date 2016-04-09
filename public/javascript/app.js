@@ -27,6 +27,7 @@ app.controller('homeController',function($scope,$http){
             url : "/yelp/restaurantinfo"
         }).success(function(result) {
             alert(result);
+            document.getElementById("review").style.display="block";
             $scope.result = result;
      });
     }
