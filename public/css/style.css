@@ -85,3 +85,14 @@ input[type="radio"] {
         height: 100%;
     }
 }
+
+.restaurant-button {
+    margin-top:5px;
+    margin-bottom:5px;
+    color: whitesmoke;
+}
+
+.reviews {
+    margin-top:5px;
+    margin-bottom: 5px;
+}
