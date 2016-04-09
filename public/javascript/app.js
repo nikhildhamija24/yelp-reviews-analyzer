@@ -42,6 +42,7 @@ app.controller('homeController',function($scope,$http){
     $scope._getAllResults = function (result) {
         var string = "";
         for(var i = 0 ; i < result.reviews.length; i++) {
+            console.log(result.reviews[i].excerpt);
             string += "\n\n" + result.reviews[i].excerpt;
         }
         return string;
